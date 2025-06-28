@@ -76,7 +76,6 @@ def output(df: pl.DataFrame, format: str):
             for row in df.iter_rows(named=True):
                 print(row)
         case "markdown":
-
             print(df.to_pandas().to_markdown(index=False))
         case _:
             raise typer.BadParameter(f"Unsupported format: {format}")
@@ -122,9 +121,15 @@ def common_options(
 def head(
     file: str,
     num: int = typer.Option(10, "--num", "-n", help="Number of rows to show"),
-    columns: Optional[str] = typer.Option(None),
-    filter: List[str] = typer.Option(None),
-    format: str = typer.Option("table"),
+    columns: Optional[str] = typer.Option(
+        None, "--columns", "-c", help="Columns to display. Example: 'column1,column2'"
+    ),
+    filter: List[str] = typer.Option(
+        None, "--filter", help="Filter conditions. Example: 'column1>10'"
+    ),
+    format: str = typer.Option(
+        "table", "--format", help="Output format: table, csv, json, jsonl, markdown"
+    ),
 ):
     validate_num(num)
     df = read_filtered_df(file, columns, filter).head(num)
@@ -135,9 +140,15 @@ def head(
 def tail(
     file: str,
     num: int = typer.Option(10, "--num", "-n", help="Number of rows to show"),
-    columns: Optional[str] = typer.Option(None),
-    filter: List[str] = typer.Option(None),
-    format: str = typer.Option("table"),
+    columns: Optional[str] = typer.Option(
+        None, "--columns", "-c", help="Columns to display. Example: 'column1,column2'"
+    ),
+    filter: List[str] = typer.Option(
+        None, "--filter", help="Filter conditions. Example: 'column1>10'"
+    ),
+    format: str = typer.Option(
+        "table", "--format", help="Output format: table, csv, json, jsonl, markdown"
+    ),
 ):
     validate_num(num)
     df = read_filtered_df(file, columns, filter).tail(num)
@@ -147,9 +158,15 @@ def tail(
 @app.command(name="cat", help="Show all rows")
 def cat(
     file: str,
-    columns: Optional[str] = typer.Option(None),
-    filter: List[str] = typer.Option(None),
-    format: str = typer.Option("table"),
+    columns: Optional[str] = typer.Option(
+        None, "--columns", "-c", help="Columns to display. Example: 'column1,column2'"
+    ),
+    filter: List[str] = typer.Option(
+        None, "--filter", help="Filter conditions. Example: 'column1>10'"
+    ),
+    format: str = typer.Option(
+        "table", "--format", help="Output format: table, csv, json, jsonl, markdown"
+    ),
 ):
     df = read_filtered_df(file, columns, filter)
     output(df, format)
