@@ -105,7 +105,7 @@ def tail(
     output(df, format)
 
 
-@app.command(name="cat", help="Show all rows (alias for show)")
+@app.command(name="cat", help="Show all rows")
 def cat(
     file: str,
     columns: Optional[str] = None,
