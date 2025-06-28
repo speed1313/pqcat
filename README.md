@@ -62,19 +62,13 @@ shape: (50, 8)
 
 ### head command
 ```bash
-$ pqcat head examples/retail.parquet -n 5 --columns Category,Price
-shape: (5, 2)
-┌──────────┬────────┐
-│ Category ┆ Price  │
-│ ---      ┆ ---    │
-│ str      ┆ f64    │
-╞══════════╪════════╡
-│ Clothing ┆ 159.57 │
-│ Toys     ┆ 10.54  │
-│ Clothing ┆ 82.04  │
-│ Toys     ┆ 174.84 │
-│ Clothing ┆ 16.62  │
-└──────────┴────────┘
+$ pqcat head examples/retail.parquet -n 5 --columns Category,Price --format csv --filter "Price>100"
+Category,Price
+Clothing,159.57
+Toys,174.84
+Groceries,133.34
+Clothing,152.98
+Toys,119.59
 ```
 
 ### schema command
