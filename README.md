@@ -94,7 +94,7 @@ TotalAmount: Float64
 ```bash
 $ pqcat row-count examples/retail.parquet
 50
-
+```
 
 ### stats command
 ```bash
