@@ -6,7 +6,7 @@ Fast command-line tool for inspecting Parquet files.
 ## Installation
 
 ```bash
-pip install pqcat
+$ pip install pqcat
 ```
 
 
