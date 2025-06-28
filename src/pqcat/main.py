@@ -3,7 +3,9 @@ import polars as pl
 from typing import Optional, List
 import os
 
-app = typer.Typer(help="Fast CLI tool for Parquet using Polars", no_args_is_help=True)
+app = typer.Typer(
+    help="Fast command-line tool for inspecting Parquet files", no_args_is_help=True
+)
 
 # === Constants ===
 OUTPUT_FORMATS = {"table", "csv", "json", "jsonl", "markdown"}
