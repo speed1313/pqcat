@@ -1,5 +1,5 @@
-# pqcat
 [![pypi](https://img.shields.io/pypi/v/pqcat.svg)](https://pypi.python.org/pypi/pqcat) [![Release Build](https://github.com/speed1313/pqcat/actions/workflows/publish.yml/badge.svg)](https://github.com/speed1313/pqcat/actions/workflows/publish.yml) [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+# pqcat
 
 Fast command-line tool for inspecting Parquet files.
 
